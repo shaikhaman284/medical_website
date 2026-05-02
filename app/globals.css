@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #050d1a;
+  --navy-mid: #0a1628;
+  --teal: #00d4b4;
+  --teal-dim: #007a6b;
+  --gold: #f0c060;
+  --white: #f0f4f8;
+  --glass: rgba(255, 255, 255, 0.05);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, rgba(0, 212, 180, 0.12), transparent 28%),
+    radial-gradient(circle at 20% 10%, rgba(240, 192, 96, 0.08), transparent 25%),
+    linear-gradient(180deg, #050d1a 0%, #050d1a 100%);
+  color: var(--white);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+::selection {
+  background: rgba(0, 212, 180, 0.22);
+  color: var(--white);
+}
+
+button,
+a {
+  transition: all 0.25s ease;
+}
+
+#smooth-scroll-target {
+  scroll-behavior: smooth;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.hero-shadow {
+  box-shadow: 0 0 120px rgba(0, 212, 180, 0.14);
+}
+
+.section-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.scroll-indicator {
+  animation: bounce 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 18px rgba(0, 212, 180, 0.12); }
+  50% { box-shadow: 0 0 28px rgba(0, 212, 180, 0.24); }
+}
+
+@keyframes gradient-wave {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes floating-particles {
+  0% { transform: translateY(0px) translateX(0px); opacity: 0.75; }
+  50% { transform: translateY(-18px) translateX(4px); opacity: 0.95; }
+  100% { transform: translateY(0px) translateX(0px); opacity: 0.75; }
+}
+
+@keyframes pulse-status {
+  0% { transform: scale(0.92); opacity: 0.8; }
+  50% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.92); opacity: 0.8; }
+}
+
+@keyframes footer-float {
+  0% { transform: translateY(0px); opacity: 0.18; }
+  50% { transform: translateY(-12px); opacity: 0.28; }
+  100% { transform: translateY(0px); opacity: 0.18; }
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.bg-shift {
+  background: linear-gradient(135deg, rgba(0, 212, 180, 0.16), transparent 18%, rgba(240, 192, 96, 0.1));
+  background-size: 300% 300%;
+  animation: gradient-wave 18s ease infinite;
+}
+
+.floating-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 20% 20%, rgba(0, 212, 180, 0.15), transparent 14%),
+    radial-gradient(circle at 80% 10%, rgba(240, 192, 96, 0.08), transparent 14%),
+    radial-gradient(circle at 50% 80%, rgba(0, 30, 60, 0.18), transparent 20%);
+}
+
+.animate-pulse-status {
+  animation: pulse-status 1.6s ease-in-out infinite;
+}
+
+.animate-footer-float {
+  animation: footer-float 12s ease-in-out infinite;
+}
+
+.hamburger-line {
+  height: 2px;
+  width: 22px;
+  background: white;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+.nav-frost {
+  background: rgba(5, 13, 26, 0.82);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.card-tilt {
+  transform-style: preserve-3d;
+  transition: transform 0.25s ease;
+}
+
+.team-card {
+  perspective: 1400px;
+}
+
+.team-card-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.team-card:hover .team-card-inner,
+.team-card:focus-within .team-card-inner {
+  transform: rotateY(180deg);
+}
+
+.team-card-face {
+  backface-visibility: hidden;
+  position: absolute;
+  inset: 0;
+}
+
+.team-card-back {
+  transform: rotateY(180deg);
+}

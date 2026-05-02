@@ -148,7 +148,9 @@ export default function Navbar() {
             <a
               key={item.href}
               href={item.href}
-              ref={(el) => (linkRefs.current[index] = el)}
+              ref={(el) => {
+                linkRefs.current[index] = el;
+              }}
               onClick={() => setMenuOpen(false)}
               className="block text-3xl uppercase tracking-[0.3em] text-white/90"
             >

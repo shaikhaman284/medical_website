@@ -3,9 +3,9 @@
 import { motion } from 'framer-motion';
 
 const team = [
-  { name: 'Shaikh Aman', role: 'Owner', message: 'Always here to help you 💊' },
-  { name: 'Mohammad Ziyauddin', role: 'Manager & Pharmacist', message: 'Guidance with care and expertise.' },
-  { name: 'Shaikh Umer', role: 'Salesman & Cashier', message: 'Friendly support for every visit.' }
+  { name: 'Shaikh Aman', role: 'Owner', message: 'Always here to help you 💊', image: '' },
+  { name: 'Mohammad Ziyauddin', role: 'Manager & Pharmacist', message: 'Guidance with care and expertise.', image: '' },
+  { name: 'Shaikh Umer', role: 'Salesman & Cashier', message: 'Friendly support for every visit.', image: '' }
 ];
 
 function initials(name: string) {
@@ -36,8 +36,12 @@ export default function TeamSection() {
             >
               <div className="team-card-inner relative h-full rounded-[2rem] transition-transform duration-500">
                 <div className="team-card-face relative flex h-full flex-col items-center gap-6 rounded-[2rem] p-6 text-center">
-                  <div className="flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-teal to-cyan text-3xl font-semibold text-navy shadow-glow">
-                    {initials(member.name)}
+                  <div className="relative flex h-24 w-24 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-teal to-cyan text-3xl font-semibold text-navy shadow-glow">
+                    {member.image ? (
+                      <img src={member.image} alt={member.name} className="h-full w-full object-cover" />
+                    ) : (
+                      <span className="text-3xl font-semibold">{initials(member.name)}</span>
+                    )}
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-white">{member.name}</h3>
